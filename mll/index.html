@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Name Styler</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            background-color: #f3f4f6;
+            color: #333;
+        }
+        .container {
+            margin-top: 50px;
+            padding: 20px;
+        }
+        input, select {
+            padding: 10px;
+            font-size: 16px;
+            border: 2px solid #ccc;
+            border-radius: 5px;
+            width: 60%;
+            margin-bottom: 10px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            background-color: #007bff;
+            color: white;
+            cursor: pointer;
+            margin: 5px;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        .output {
+            margin-top: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #007bff;
+        }
+        .ads-container {
+            margin-top: 30px;
+        }
+    </style>
+
+    <!-- Google AdSense script -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2132072995623272"
+     crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Fancy Name Styler</h1>
+        <p>Enter a name below, select a style, and get a styled version!</p>
+        <input type="text" id="nameInput" placeholder="Enter a name...">
+        <br>
+        <select id="styleSelect">
+            <option value="★">★ Star ★</option>
+            <option value="✿">✿ Flower ✿</option>
+            <option value="✨">✨ Sparkles ✨</option>
+            <option value="🌟">🌟 Shiny 🌟</option>
+            <option value="♥">♥ Heart ♥</option>
+            <option value="ツ">ツ Smile ツ</option>
+            <option value="~">~ Wave ~</option>
+            <option value="✔">✔ Check ✔</option>
+            <option value="☀">☀ Sun ☀</option>
+            <option value="♫">♫ Music ♫</option>
+            <option value="𓂀">𓂀 Eye 𓂀</option>
+            <option value="꧁">꧁ Fancy ꧂</option>
+            <option value="꧂">꧂ Elegant ꧁</option>
+            <option value="✧">✧ Starry ✧</option>
+            <option value="༺">༺ Stylish ༻</option>
+        </select>
+        <br>
+        <button onclick="generateStyledName()">Style Name</button>
+        <button onclick="copyToClipboard()">Copy Name</button>
+        <button onclick="clearInput()">Clear</button>
+        <div class="output" id="output"></div>
+        
+        <!-- Google AdSense Advertisement -->
+        <div class="ads-container">
+            <ins class="adsbygoogle"
+                style="display:block"
+                data-ad-format="auto"
+                data-ad-client="ca-pub-2132072995623272"
+                data-ad-slot="8668890171"></ins>
+            <script>
+                (adsbygoogle = window.adsbygoogle || []).push({});
+            </script>
+        </div>
+    </div>
+
+    <script>
+        function generateStyledName() {
+            const name = document.getElementById('nameInput').value.trim();
+            const style = document.getElementById('styleSelect').value;
+
+            if (!name) {
+                alert("Please enter a name.");
+                return;
+            }
+
+            const styledName = `${style} ${name} ${style}`;
+            document.getElementById('output').innerText = styledName;
+        }
+
+        function copyToClipboard() {
+            const output = document.getElementById('output').innerText;
+            if (output) {
+                navigator.clipboard.writeText(output).then(() => {
+                    alert('Name copied to clipboard!');
+                }, () => {
+                    alert('Failed to copy name.');
+                });
+            } else {
+                alert('No styled name to copy!');
+            }
+        }
+
+        function clearInput() {
+            document.getElementById('nameInput').value = "";
+            document.getElementById('output').innerText = "";
+        }
+    </script>
+</body>
+</html>
